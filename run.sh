@@ -7,4 +7,5 @@
 #
 
 
+mkdir -p data
 scrapy crawl ask39
