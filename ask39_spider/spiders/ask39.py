@@ -19,9 +19,9 @@ class Ask39Spider(scrapy.Spider):
         self.question_template = 'http://ask.39.net/question/%s.html'
         self.doctor_template = 'http://my.39.net/%s'
 
-        self.start_page = 56970970
-        #  self.end_page = 70000000
-        self.end_page = 56970971
+        self.start_page = 1
+        self.end_page = 70000000
+        #  self.end_page = 56970971
 
         self.doctor_set = set()
 
