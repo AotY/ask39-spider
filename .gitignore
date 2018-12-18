@@ -1,0 +1,9 @@
+### data
+*.txt
+*.out
+data/
+
+### python
+*.pyc
+__pycache__
+
