@@ -21,7 +21,7 @@ class Ask39Spider(scrapy.Spider):
 
         self.start_page = 3840295
         #  self.end_page = 70000000
-        self.end_page = 56970971
+        self.end_page = 56967315
 
         """
         self.doctor_set = set()

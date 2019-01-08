@@ -17,7 +17,8 @@ from ask39_spider.items import QuestionItem, DoctorItem
 
 class Ask39SpiderPipeline(object):
     def __init__(self):
-        mode = 'w'
+        #  mode = 'w'
+        mode = 'a'
         self.convos_file = open(Constant.convos_path, mode, encoding='utf-8')
         self.doctor_file = open(Constant.doctor_path, mode, encoding='utf-8')
 
