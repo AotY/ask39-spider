@@ -19,23 +19,28 @@ class Ask39Spider(scrapy.Spider):
         self.question_template = 'http://ask.39.net/question/%s.html'
         self.doctor_template = 'http://my.39.net/%s'
 
-        self.start_page = 1
-        self.end_page = 70000000
-        #  self.end_page = 56970971
+        self.start_page = 3840295
+        #  self.end_page = 70000000
+        self.end_page = 56970971
 
+        """
         self.doctor_set = set()
+        """
 
     def start_requests(self):
-        for cur_page in range(self.start_page, self.end_page):
+        #  for cur_page in range(self.start_page, self.end_page):
+        for cur_page in range(self.end_page, self.start_page, -1):
             url = self.question_template % cur_page
             logger.info('---> url: %s' % url)
             yield scrapy.Request(url=url, callback=self.parse_question)
 
+        """
         #  self.doctor_set.add('P4349188')
         for doctor in self.doctor_set:
             url = self.doctor_template % doctor
             logger.info('---> url: %s' % url)
             yield scrapy.Request(url=url, callback=self.parse_doctor)
+        """
 
     def parse_question(self, response):
         status = response.status
@@ -137,8 +142,10 @@ class Ask39Spider(scrapy.Spider):
                 'div[@class="doctor_all"]/div[@class="doc_img"]/a/@href').extract_first()
             d_id = d_url.split('/')[-1]
 
+            """
             if d_id not in self.doctor_set:
                 self.doctor_set.add(d_id)
+            """
 
             # response text
             response_texts = response_div.xpath(

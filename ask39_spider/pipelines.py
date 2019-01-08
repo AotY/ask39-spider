@@ -40,6 +40,6 @@ class Ask39SpiderPipeline(object):
         return item
 
     def __del__(self):
-        #  self.convos_file.close()
-        #  self.doctor_file.close()
+        self.convos_file.close()
+        self.doctor_file.close()
         pass
